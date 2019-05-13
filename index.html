@@ -31,9 +31,23 @@
                 padding:15px 15px;
                 font-size:25px;
             }
+            #wrapper
+            {
+                 position:relative;
+            }
             #sketchpad
             {
+                position:absolute;
                 border:2px solid #888;
+                background:url(roundguy.png);
+                background-size: 100%;
+                opacity:0.1;
+                z-index:1;
+            }
+            #sketch2
+            {
+                position:absolute;
+                z-index:0;
                 background:url(roundguy.png);
                 background-size: 100%;
             }
@@ -117,7 +131,11 @@
             // Clear the canvas context using the canvas width and height
             function clearCanvas(canvas,ctx)
             {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                document.getElementById("sketchpad").style.opacity="1";
+                document.getElementById("sketchpad").style.visibility="visible";
+                //ctx.globalAlpha=0.5;
+                alert("take screenshot for results?");
+                //ctx.clearRect(0, 0, canvas.width, canvas.height);
             }
             function sketchpad_touchStart()
             {
@@ -154,10 +172,12 @@
         </script>
     </head>
     <body onload="init()">
-        <h1>canvas test</h1>
+        <header><h1>canvas test</h1></header>
+        <button onclick="clearCanvas(canvas,ctx)">next round</button>
+        <div id="wrapper">
         <canvas id="sketchpad"  width="600%" height="600%"></canvas>
-        <br/>
-        <button onclick="clearCanvas(canvas,ctx)">clear canvas</button>
+        <canvas id="sketch2" width="600%"  height="600%"></canvas>
+        </div>
     </body>
     
 </html>
