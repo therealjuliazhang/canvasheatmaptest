@@ -34,6 +34,8 @@
             #sketchpad
             {
                 border:2px solid #888;
+                background:url(roundguy.png);
+                background-size: 100%;
             }
         </style>
         <script  type="text/javascript">
@@ -153,7 +155,8 @@
     </head>
     <body onload="init()">
         <h1>canvas test</h1>
-        <canvas id="sketchpad"  width="400" height="300"></canvas>
+        <canvas id="sketchpad"  width="600%" height="600%"></canvas>
+        <br/>
         <button onclick="clearCanvas(canvas,ctx)">clear canvas</button>
     </body>
     
