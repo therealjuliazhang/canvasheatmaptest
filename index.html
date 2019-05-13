@@ -31,23 +31,9 @@
                 padding:15px 15px;
                 font-size:25px;
             }
-            #wrapper
-            {
-                 position:relative;
-            }
             #sketchpad
             {
-                position:absolute;
                 border:2px solid #888;
-                background:url(roundguy.png);
-                background-size: 100%;
-                opacity:0.1;
-                z-index:1;
-            }
-            #sketch2
-            {
-                position:absolute;
-                z-index:0;
                 background:url(roundguy.png);
                 background-size: 100%;
             }
@@ -83,7 +69,7 @@
                 r=0; g=0; b=0; a=255;
             
                 //select a fill style
-                ctx.fillStyle = "rgba("+r+","+g+","+b+","+(a/255)+")";
+                ctx.fillStyle = "rgba("+r+","+g+","+b+","+0.3+")";
                 //draw a filled circle
                 ctx.beginPath();
                 ctx.arc(x, y, size, 0, Math.PI*2, true);
@@ -164,8 +150,8 @@
                     if (e.touches.length == 1)
                     { // Only deal with one finger
                         var touch = e.touches[0]; // Get the information for finger #1
-                        touchX=touch.clientX-touch.target.offsetLeft;
-                        touchY=touch.clientY-touch.target.offsetTop;
+                        touchX=touch.pageX-touch.target.offsetLeft;
+                        touchY=touch.pageY-touch.target.offsetTop;
                     }
                 }
             }
@@ -173,11 +159,8 @@
     </head>
     <body onload="init()">
         <header><h1>canvas test</h1></header>
-        <button onclick="clearCanvas(canvas,ctx)">next round</button>
-        <div id="wrapper">
+        <button onclick="clearCanvas(canvas,ctx)">next round</button><br/>
         <canvas id="sketchpad"  width="600%" height="600%"></canvas>
-        <canvas id="sketch2" width="600%"  height="600%"></canvas>
-        </div>
     </body>
     
 </html>
