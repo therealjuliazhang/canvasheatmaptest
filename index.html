@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Identify The Body Part</title>
+        <meta name = "viewport" content = "width = device-width, initial-scale = 1">
+        <link rel = "stylesheet" href = "https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+        <script type = "text/javascript" src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+    </head>
+    <!--the stuff in the head is all the linking things to Materialize-->
+    <!--all the linking's been done, so you shouldn't need to download anything from Materialise-->
+    <body>
+        <!--no header needed for test pages-->
+        <img src="greyCircle.png" width="7%" align="right" onclick="goNext()"></img>
+        <!-- body content -->
+        <div class="container">
+            
+            <canvas id="source"></canvas>
+            
+            
+            
+            
+        </div>
+        <!--end body content-->
+        
+        
+
+    </body>
+    <style>
+        .brand-logo{
+            margin-top:-67px;
+        }
+        .logout{
+        margin-top: 15px;
+        margin-right:15px;
+        }
+        #source
+        {
+            width:90%;
+            height:90%;
+            border:1px solid #000000;
+        }
+    </style>
+    <script>
+        function goNext()
+        {
+            //alert("go next clicked");
+            draw();
+        }
+    
+        function draw()
+        {
+            alert("draw called");
+            var canvas = document.getElementById('source');
+            if(canvas.getContext)
+            {
+                var ctx = canvas.getContext('2d');
+                ctx.beginPath();
+                //context.arc(x,y,r,sAngle,eAngle,counterclockwise);
+                ctx.arc(50,50,10,0,2 * Math.PI);
+                ctx.fillStyle='green';
+                ctx.fill();
+                ctx.lineWidth=3;
+                ctx.strokeStyle='#003300';
+                ctx.stroke();
+            }
+        }
+    </script>
+</html>
